@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Responsive Navigation Menu</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} 
+nav{
+  display: flex;
+  height: 50px;
+  width: 100%;
+  background: black;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+}
+nav .logo{
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+  font-style: Serif;
+
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-style: Serif;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #fff;
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  nav ul{
+    position: fixed;
+    top: 69px;
+    left: -100%;
+    background: #111;
+    height: 30vh;
+    width: 40%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 2px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+ margin-left: 80px;
+  font-size: 18px;
+  border: 1px solid black;
+  margin-bottom: 50px;
+}
+.subheader{
+    float: right;
+    margin-top: 0;
+    padding: 0px 0px 0px 500px;
+    background-color: black;
+    
+}
+.header {
+  overflow: hidden;
+  background-color: rgb(4, 4, 4);
+  padding: 1px 2px;
+}
+
+.text-block a{
+    color: black;
+}
+.mySlides {
+    display: none
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: 100%; 
+  position: relative;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: rgb(190, 38, 38);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 8px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+ /* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+.info{
+  font-size: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 3px solid black;
+  font-style: Serif;
+}
+ .all-browsers {
+  margin: 0;
+  padding: 5px;
+  background-color: white
+}
+
+.all-browsers > h1, .browser {
+  margin: 10px;
+  padding: 5px;
+  margin-left:80px;
+  margin-right: 80px;
+}
+
+.browser {
+  background: white;
+}
+
+.browser > h2{
+  margin: 4px;
+  font-size: 20px;
+  color: rgb(86, 225, 156);
+  
+}
+.browser >p {
+  margin: 4px;
+  font-size: 17px;
+  line-height:40px;
+  color: rgb(136, 135, 135);
+  text-align: justify;
+  font-family: 'lato';
+  
+}
+.check-container {
+    display: flex;
+    justify-content: center;
+    padding: 45px;
+}
+
+.check-container > div {
+  background-color: white;
+  margin: 25px;
+  text-align: center;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.check-container p{
+  color: rgb(97, 94, 94);
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+  display: inline-block;
+}
+@media screen and (max-width: 800px) {
+  .check-container{
+    flex-direction: column;
+  }
+  .ex-images{
+    flex-direction: column;
+    
+  }
+}
+.ourservice{
+  font-size: 30px;
+  color: rgb(100, 98, 98);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+
+}
+.choose{
+  margin-top: 10px;
+  text-align: center;
+  row-gap: 50px;
+  margin: 50px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+.choose h1{  
+  text-align: left;
+  font-size: 30px;
+  font-weight: bold;
+}
+ .flex-container {
+  display: flex;
+  justify-content: center;
+  padding: 45px;
+}
+.flex-container > div {
+  background-color: white;
+  margin:px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.flex-container p{
+  color: rgb(97, 94, 94);
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+  display: inline-block;
+}
+
+@media screen and (max-width: 800px) {
+  .flex-container{
+    flex-direction: column;
+  }
+}
+ .btnone{
+  background-color: rgb(100, 98, 98);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.btnone:hover {
+   background-color: rgb(188, 174, 174);
+}
+.ourexperience{
+  text-align: left;
+  font-size: 30px;
+  color: rgb(100, 98, 98);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-left:80px;
+  font-style: Serif;
+
+  font-weight: bold;
+}
+.ourexperience div p{
+  font-size: 20px;
+  font-weight: lighter;
+  font-style: Serif;
+
+
+}
+.longimg{
+  text-align: right;
+  margin-right: 80px;
+}
+
+.calling p{
+  font-weight: bold;
+  font-size: 25px;
+  color: rgb(100, 98, 98);
+}
+ .btntwo {
+   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+   background-color:  rgb(100, 98, 98);
+   border: none;
+   color: white;
+   padding: 10px 20px;
+   text-align: center;
+   display: inline-block;
+   margin: 4px 2px;
+   margin-bottom: 20px;
+   cursor: pointer;
+   font-size: 20px;
+   border-radius: 32px;
+}
+.btntwo:hover {
+   background-color: rgb(188, 174, 174);
+}
+ .marqueex{
+  display: flex;
+  
+}
+.marqueex img{
+  height: 50px;
+  width: 80px;
+  margin-left: 200px;
+
+}
+.marqueex p{
+  font-weight: bold;
+  font-style: italic;
+  font-size: 14px;
+}
+ .ex-images{
+  float:right;
+  margin-right: 20px;
+  margin-bottom: 100px;
+  margin-right: 70px;
+}
+.last{
+  display: flex;
+}
+.checkbox img{
+  height: 15px;
+  width: 20px;
+}
+.txt_here{
+  font-weight: lighter;
+  font-size: 15px;
+  margin: 10px;
+  color: rgb(195, 193, 193);
+}
+.lastone{
+  display: flex;
+}
+.checkboxone img{
+  height: 15px;
+  width: 20px;
+}
+.txt_hereone{
+  font-weight: lighter;
+  font-size: 15px;
+  margin: 10px;
+  color: rgb(195, 193, 193);
+}
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #d5dbec;
+    padding: 30px 0;
+}
+.footer-col{
+   width: 25%;
+   padding: 0 10px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #0036e7;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #382b2b;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #161fca;
+	padding-left: 8px;
+}
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}
+
+
+p.copyright {
+	color: rgb(4, 1, 1);
+    line-height: 40px;
+    font-size: 1em;
+	margin:0 220px 10px 0;
+	position: absolute;
+	right: 10px;
+}
+.cp-text{ 
+    color: rgba(0,0,0,.7); 
+    text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+    text-align: center; 
+    margin: 6px 0px 0px 6px;
+
+}
+
+.gotopbtn{
+  position: fixed;
+  width: 35px;
+  height: 25px;
+  
+  bottom: 40px;
+  right: 40px;
+
+  text-decoration: none;
+  text-align: right;
+  line-height: 20px;
+  color: rgb(37, 51, 208);
+  font-size: 20px;
+  width: auto;
+}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    background-color: rgba(11, 87, 168, 0.824);
+    color: white;
+    padding: 1px 2px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 40px;
+    right: 100px;
+    width: px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+  background-color: #04AA6D;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+.website-counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  height: 100vh;
+}
+
+/* Styles for website counter container */
+.website-counter {
+  background-color: #6e8bed;
+  height: px;
+  width: 60px;
+  color: white;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: 10px;
+
+}
+
+/* Styles for reset button */
+#reset {
+  margin-top: 20px;
+  background-color: #008cba;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 8px 20px;
+  color: white;
+  border: 0;
+}
+.marqueex{
+  display: flex;
+  
+}
+.marqueex img{
+  height: 30px;
+  width: 70px;
+  margin-left: 80px;
+
+}
+.marqueex p{
+  font-weight: bold;
+  font-size: 14px;
+  font-style: Serif;
+  text-align: center;
+}
+
+* {box-sizing: border-box;}
+.header {
+  overflow: hidden;
+  background-color: rgb(4, 4, 4);
+  padding: 10px 20px;
+}
+
+.header a {
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 1px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 5px;
+  border-radius: 4px;
+}
+
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+.subheader{
+    float: right;
+    height: 50px;
+    margin-top: 2px;
+    font-style: Serif;
+    padding: 0px 0px 0px 40px;
+    
+}
+#body #feedback-form-wrapper #floating-icon > button {
+  
+  position: fixed;
+  right: 0;
+  color: black;
+  font-size: large;
+  top: 50%;
+  transform: rotate(-90deg) translate(50%, -50%);
+  transform-origin: left;
+}
+.card{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+@media screen and (max-width: 800px) {
+    .card{
+        flex-direction: column;
+    }
+    
+}
+.text-block{
+    font-size: 20px;
+}
+
+.text-block {
+    position: absolute;
+    top: 7px;
+    left: 70px;
+    margin-top: 150px;
+    font-size: 40px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+   </style>
+   <body>
+     <!--import bootstrap cdn-->
+
+    <div class="header">
+    <div class="subheader">
+        <a  href="signup.php" class="btn-sm
+        float-right mx-2 mb-3" style="font-size: small; ">SIGNUP</a>
+        <a  href="login.php" id="login" class="btn-sm
+        float-right mx-2 mb-3" style="font-size: small;">LOGIN</a>
+      </div>
+    </div>
+      <nav>
+         <div class="logo">
+            <img  src="images/logo.jpg" width="120" height="70">
+         </div>
+         <input type="checkbox" id="click">
+         <label for="click" class="menu-btn">
+         <i class="fas fa-bars"></i>
+         </label>
+         <ul>
+          <li class=><a href="home.php">HOME</a></li>
+          <li><a href="aboutus.php">ABOUT US</a></li>
+          <li><a href="index.php">CATEGORIES</a></li>
+          <li><a href="mycart.php">CART</a></li>
+          <li><a href="contact.php">CONTACT</a></li>
+         </ul>
+      </nav>
+      <div class="body">
+        <div class="mySlides">
+          <div class="numbertext"></div>
+          <img src="images/jewellery.webp" style="width:100%">
+          <div class="text-block"><a href="final2.html" class="btn-sm float-right mx-2 mb-3" >WANT TO KNOW MORE ABOUT IT</a></div>
+        </div>
+        
+        <div class="mySlides">
+          <div class="numbertext"></div>
+          <img src="images/bg3.jpg" style="width:100%">
+          <div class="text-block"><a href="final2.html" class="btn-sm float-right mx-2 mb-3" >WE PROVIDE THE BEST SERVICES</a></div>
+        </div>
+        
+        <div class="mySlides">
+          <div class="numbertext"></div>
+          <img src="images/bgg.jpg" style="width:100%">
+          <div class="text-block"><a href="final2.html" class="btn-sm float-right mx-2 mb-3" >WANT TO KNOW MORE ABOUT IT</a></div>
+        </div>
+        
+        <a class="prev" id="backward" onclick="plusSlides(-1)">❮</a>
+        <a class="next" id="forward" onclick="plusSlides(1)">❯</a>
+        
+        </div>
+        <br>
+        
+        <div style="text-align:center">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        
+        <div class="marqueex">
+          <div>
+            <img src="images/marquee.jpg" alt="">
+          </div>
+          <marquee behavior="scroll" width="80%" direction="left" height="80%" onmouseover="this.stop();" onmouseout="this.start();">
+            <p>Jewellery is an expression for the mind and soul, Accessories brings to you your mind and soul, capsuled in a beautiful collection of Contemporary Jewelry </p>
+          </marquee>
+        </div>
+        <article class="all-browsers">
+          <article class="browser">
+            <h2>Home</h2>
+            <p>jewelry, objects of personal adornment prized for the craftsmanship going into their creation and generally for the value of their components as well.
+
+              Throughout the centuries and from culture to culture, the materials considered rare and beautiful have ranged from shells, bones, pebbles, tusks, claws, and wood to so-called precious metals, precious and semiprecious stones, pearls, corals, enamels, vitreous pastes, and ceramics. In certain eras artist-craftsmen have sometimes placed less emphasis on the intrinsic value of materials than on their aesthetic function as components contributing to the effect of the whole. </p>
+          </article>
+          <article class="browser">
+            <h2>About us</h2>
+            <p>Jewellery is an expression for the mind and soul, Accessories brings to you your mind and soul, capsuled in a beautiful collection of Contemporary Jewelry. Our Aim is to be your one stop destination for all things jewelry, affordable and chic.
+              Started by a young and enthusiastic Designer/Entrepreneur, Paridhi Dhanuka who is a Fashion design Graduate from NIFT, Mumbai and a trained jewelry maker and designer from the esteemed Jewelry School in Italy, ALCHIMIA, brings to you an affordable brand that caters to the need of one and all. We’ve Got you covered for all Moods and Occasions, that’s our promise.</p>
+              </article>
+          <article class="browser">
+            <h2>Vision</h2>
+            <p>To achieve 100% customer satisfaction by delivering Quality and Services..</p>
+          </article>
+          <article class="browser">
+            <h2>Mission</h2>
+            <p>Our mission is to provide excellent service through Dynamic professionals</p>
+          </article>
+          <article class="browser">
+            <h2>Our Team</h2>
+            <p>We nurture a pool of talented personnel who are well versed in their respective domain.</p></section></p>
+          </article>
+        <div class="container mt-5">    
+          <div class="row">
+          <div class="col-lg-4">
+              <form action="manage_cart.php"  method="POST">
+                  <div class="card">
+                      <img src="images/img11.jpg"  height="250px" width="300px" class="card-img-top">
+                          <div class="card-body text-center">
+                              <h5 class="card-title">WEB DESIGN</h5>
+                              <p class="card-text">Create and grow your unique website</p>
+                              <button type="submit" name="Add_To_Cart" class="btn btn-secondary"><a href="index.php"></a>EXPLORE MORE</button>
+                            
+                      </div>
+                  </div>
+              </form>
+          </div>
+  
+          <div class="col-lg-4">
+              <form action="manage_cart.php" method="POST">
+                  <div class="card">
+                      <img src="images/img5.jpg" height="250px" width="300px" class="card-img-top" alt="...">  
+                          <div class="card-body text-center">
+                              <h5 class="card-title">GRAPHIC DESIGN</h5>
+                              <p class="card-text">Create and grow your unique website</p>
+                              <button type="submit" class="btn btn-secondary"><a href="index.php"></a>EXPLORE MORE</button>
+                              
+                      </div>
+                  </div>
+              </form>
+          </div>
+  
+          <div class="col-lg-4">
+              <form action="manage_cart.php"  method="POST">
+                  <div class="card">
+                      <img src="images/img8.jpg"  height="250px" width="300px" class="card-img-top" alt="...">
+                      <div class="card-body text-center">
+                          <h5 class="card-title">DIGITAL MARKETING</h5>
+                          <p class="card-text">Create and grow your unique website </p>
+                          <button type="submit" name="Add_To_Cart" class="btn btn-secondary"><a href="index.php"></a>EXPLORE MORE</button>
+                      </div>
+                  </div>
+              </form>
+          </div>
+  </div>
+  </div>
+
+
+        
+        <div class="ourexperience">OUR EXPERIENCE
+          <div class="ex-images">
+            <img src="images/about.jpg" alt="" width="300" height="350">
+          </div>
+          <div class="experience-container">
+            <p>Jewellery is an expression for the mind and soul, Accessories brings <br>to you your mind and soul, capsuled in a beautiful collection of <br>Contemporary Jewelry. Our Aim is to be your one stop destination <br>for all things jewelry, affordable and chic.</p>
+            <div class="passion-container">
+            <p>
+              We have 8 Years of Experience In This Passion
+            </p>
+            <div class="last">
+              <div class="checkbox">
+                <img src="images/right.jpg" alt="">
+              </div>
+              <div class="txt_here">
+                Best Quality
+              </div><br>
+              <div class="checkbox">
+                <img src="images/right.jpg" alt="">
+              </div>
+              <div class="txt_here">
+                Best Product
+              </div>
+              <div class="checkbox">
+                <img src="images/right.jpg" alt="">
+              </div>
+              <div class="txt_here">
+                Best Service
+              </div>
+            </div>
+            <div class="lastone">
+              <div class="checkboxone">
+                <img src="images/right.jpg" alt="">
+              </div>
+              <div class="txt_hereone">
+                Best Quality
+              </div><br>
+              <div class="checkboxone">
+                <img src="images/right.jpg" alt="">
+              </div>
+              <div class="txt_hereone">
+                Best Product
+              </div>
+              <div class="checkboxone">
+                <img src="images/right.jpg" alt="">
+              </div>
+              <div class="txt_hereone">
+                Best Service
+              </div>
+            </div>
+  <div class="calling">
+            <p>
+              CALL + 91-9818737611 FOR A ENQUIRY
+            </p>
+          </div>
+            <button class="btntwo"><a href="index.php">PLACE ORDER</a></button>
+        </div>
+
+        <div class="choose">
+          <h1>WHY CHOOSE US</h1> </div>
+          <div class="flex-container">
+            <div>
+            <img src="images/clipboard-data.svg" style="height: 70px; width: 70px;">
+            <h4>Projects</h4>
+            <h6>Best project till now</h6>
+            </div>
+            <div>
+              <img src="images/chat-left-dots.svg"  style="height: 70px; width: 70px;">
+              <h4>Support</h4>
+              <h6>Your Products Receive on Time</h6>
+            </div>
+            <div>
+              <img src="images/graph-up-arrow.svg"  style="height:  70px; width: 70px;">
+              <h4>Quality</h4>
+              <h6>Provide best quality </h6>
+            </div> 
+            <div>
+              <img src="images/checkbox1.webp"  style="height:  70px; width: 70px;">
+              <h4>Offers</h4>
+              <h6>There are multiple offers</h6>
+            </div>
+          </div>
+        </div>
+         
+        </div>
+         
+       
+        
+     
+        
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          let dots = document.getElementsByClassName("dot");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex-1].style.display = "block";  
+          dots[slideIndex-1].className += " active";
+        }
+
+        </script>
+    
+  <footer class="footer">
+      <div class="container">
+          <div class="row">
+              <div class="footer-col">
+                  <h4>Useful Links</h4>
+                  <ul>
+                      <li><a href="#">Delivery Information</a></li>
+                      <li><a href="#">International Shipping</a></li>
+                      <li><a href="#">Track Tour Order</a></li>
+                      <li><a href="#">Returns</a></li>
+                  </ul>
+              </div>
+              <div class="footer-col">
+                  <h4>Information</h4>
+                  <ul>
+                      <li><a href="#">Careers</a></li>
+                      <li><a href="#">BLog</a></li>
+                      <li><a href="#">Offers</a></li>
+                      <li><a href="#">payment options</a></li>
+                  </ul>
+              </div>
+              <div class="footer-col">
+                <h4>Example</h4>
+                <ul>
+                    <li><a href="#">Example</a></li>
+                    <li><a href="#">Example</a></li>
+                    <li><a href="#">Example</a></li>
+                    <li><a href="#">Example</a></li>
+                </ul>
+            </div>
+              <div class="footer-col">
+                  <h4>Change Language</h4>
+                  <ul>
+                      <li><div class="langs">
+            <div id="google_translate_element"></div>
+
+  <script type="text/javascript">
+      function googleTranslateElementInit() {
+          new google.translate.TranslateElement(
+              {pageLanguage: 'en'},
+              'google_translate_element'
+          );
+      }
+  </script>
+
+  <script type="text/javascript"
+          src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+  </script>
+       </div></li>
+       <li><div>Total visit count:</div>
+        <div class="website-counter"></div></li>
+                  </ul>
+              </div>
+              <a class="gotopbtn" href="#" id="bottom_to_top"> <i class="fas fa-arrow-up"></i> </a>
+          </div>
+          
+          
+              
+              <button class="open-button" onclick="openForm()">Contact Us!</button>
+
+              <div class="chat-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                  <h1>Message</h1>
+              
+                  <label for="msg"><b>Message</b></label>
+                  <textarea placeholder="Type message..." name="msg" required></textarea>
+              
+                  <button type="submit" class="btn">Send</button>
+                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+              </div>
+              
+              <script>
+                  function openForm() {
+                    document.getElementById("myForm").style.display = "block";
+                  }
+                  
+                  function closeForm() {
+                    document.getElementById("myForm").style.display = "none";
+                  }
+                  </script>
+
+
+
+                  
+                  
+  
+
+
+          </div>
+          
+      </div>
+      <p class="cp-text"><br>
+        © Copyright 2022. Created by:  |<a href="#">Cookies</a>|<a href="#">Privacy</a>
+    </p>
+  </footer>
+  
+   </body>
+</html>
